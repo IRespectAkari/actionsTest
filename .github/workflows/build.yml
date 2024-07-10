@@ -1,9 +1,9 @@
-name: Create Zip Archive
+name: Create ZIP Archive
 
 on:
   push:
-    branches:
-      - main  # メインブランチにプッシュされたときにトリガーする
+    paths:
+      - '**'  # どのファイルがアップロードされてもトリガーする
 
 jobs:
   build:
@@ -15,7 +15,7 @@ jobs:
 
     - name: Create ZIP archive
       run: |
-        zip -r archive.zip manifest.json
+        zip -r archive.zip .
         ls -l  # ZIPファイルが生成されたことを確認するためにディレクトリ内容を表示
 
     - name: Upload ZIP artifact
