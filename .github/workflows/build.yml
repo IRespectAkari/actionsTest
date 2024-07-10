@@ -13,12 +13,9 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Add JSON file to repository
-      run: echo '{"key": "value"}' > data.json
-
     - name: Create ZIP archive
       run: |
-        zip -r archive.zip data.json
+        zip -r archive.zip manifest.json
         ls -l  # ZIPファイルが生成されたことを確認するためにディレクトリ内容を表示
 
     - name: Upload ZIP artifact
